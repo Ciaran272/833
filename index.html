@@ -236,7 +236,7 @@
             let px = basePx;
             input.style.fontSize = px + 'px';
             // 逐步减小到最小 12px，直到内容不再溢出
-            while (input.scrollWidth > input.clientWidth && px > 12){
+            while (input.scrollWidth > input.clientWidth && px > 16){
                 px -= 1;
                 input.style.fontSize = px + 'px';
             }
