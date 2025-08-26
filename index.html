@@ -174,9 +174,11 @@
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+                align-items: flex-start;
             }
             .container {
-                padding: 15px;
+                padding: 20px;
+                max-width: 100%;
             }
             h1 {
                 font-size: 2em;
@@ -185,12 +187,22 @@
                 gap: 12px;
             }
             .member-card {
-                padding: 12px;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
                 gap: 10px;
             }
-            input[type="text"], input[type="number"] {
-                padding: 8px 10px;
-                font-size: 0.9em;
+            .member-card input[type="text"],
+            .member-card input[type="number"] {
+                width: 100%;
+                text-align: center;
+            }
+            .member-card .member-result {
+                text-align: center;
+                padding: 12px 15px;
+            }
+            .total-section input {
+                width: 100%;
             }
             .controls {
                 flex-direction: column;
