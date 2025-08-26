@@ -25,13 +25,14 @@
             padding: 20px;
             display: flex;
             justify-content: center;
+            align-items: center; /* 新增此行 */
             min-height: 100vh;
             box-sizing: border-box;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 500px; /* 修改此行 */
             background: var(--card-bg);
             padding: 30px;
             border-radius: 20px;
@@ -73,7 +74,7 @@
             border: 1px solid var(--border-color);
             border-radius: 10px;
             font-size: 1em;
-            width: 100%;
+            width: 120px;
             box-sizing: border-box;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -95,14 +96,15 @@
         }
         .total-section input {
             text-align: center;
+            width: 220px;
             max-width: 220px;
             font-size: 1.2em;
         }
         
         .members-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .member-card {
@@ -111,8 +113,10 @@
             border-radius: 15px;
             border: 1px solid var(--border-color);
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between; /* 新增此行 */
+            gap: 5px; /* 减小间距 */
             position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -125,14 +129,14 @@
             font-weight: 700;
             color: var(--primary-color);
             background-color: #e7f3ff;
-            padding: 10px 8px;
+            padding: 10px 15px;
             text-align: center;
             border-radius: 10px;
-            margin-top: 5px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: clamp(0.9rem, 4vw, 1.5rem);
+            font-size: 1.2em;
+            min-width: 120px;
         }
         
         .nice-button {
@@ -229,18 +233,7 @@
         const debouncedCalculate = debounce(calculate, 150);
 
         
-        function fitInputText(input){
-            if(!input) return;
-            const style = window.getComputedStyle(input);
-            const basePx = parseFloat(style.fontSize) || 16;
-            let px = basePx;
-            input.style.fontSize = px + 'px';
-            // 逐步减小到最小 12px，直到内容不再溢出
-            while (input.scrollWidth > input.clientWidth && px > 16){
-                px -= 1;
-                input.style.fontSize = px + 'px';
-            }
-        }
+
 
         // === 简化函数 ===
         function createMemberCard() {
@@ -258,8 +251,6 @@
             `;
             
             membersContainer.appendChild(card);
-            // 初始化该输入框的字体适配
-            fitInputText(card.querySelector('.member-name'));
         }
 
         function addMember() {
@@ -315,19 +306,12 @@
             // 绑定总金额输入节流
             const totalInput = document.getElementById('total-amount');
             totalInput.addEventListener('input', debouncedCalculate);
-            // 事件代理：成员时长输入 -> 计算；成员名称输入 -> 字号适配
+            // 事件代理：成员时长输入 -> 计算
             membersContainer.addEventListener('input', e=>{
                 if(e.target && e.target.classList.contains('member-time')){
                     debouncedCalculate();
                 }
-                if(e.target && e.target.classList.contains('member-name')){
-                    fitInputText(e.target);
-                }
             });
-            // 窗口尺寸变化时，重新适配所有名字框
-            window.addEventListener('resize', ()=>{
-                document.querySelectorAll('.member-name').forEach(fitInputText);
-            })
         });
     </script>
 
