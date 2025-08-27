@@ -238,24 +238,66 @@
         }
 
         /* 桌面和移动端都生效的成员输入框和金额宽度设置 */
+        /* 基础样式 */
         .member-card input[type="text"] {
-            width: 200px;
-            min-width: 200px;
-            max-width: 200px;
+            flex: 1 1 auto;
+            min-width: 0;
             font-size: 1em;
         }
         .member-card input[type="number"] {
-            width: 110px !important;
-            min-width: 100px;
-            max-width: 140px;
-            font-size: 1em;
-        }
-        .member-card .member-result {
+            flex: 0 0 90px;
+            width: 90px;
             min-width: 90px;
             max-width: 90px;
             font-size: 1em;
+        }
+        .member-card .member-result {
+            flex: 0 0 80px;
+            width: 80px;
+            min-width: 80px;
+            max-width: 80px;
+            font-size: 1em;
             padding: 8px 6px;
             text-align: center;
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 15px 10px;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .member-card {
+                padding: 12px 8px;
+                gap: 8px;
+            }
+            .member-card input[type="number"] {
+                flex: 0 0 80px;
+                width: 80px;
+                min-width: 80px;
+                max-width: 80px;
+            }
+            .member-card .member-result {
+                flex: 0 0 70px;
+                width: 70px;
+                min-width: 70px;
+                max-width: 70px;
+            }
+            input[type="text"], input[type="number"] {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+            .total-section input {
+                width: 100%;
+                max-width: 100%;
+            }
         }
         
     </style>
