@@ -204,8 +204,14 @@
         /* 响应式缩放 */
         @media (max-width: 480px) {
             html {
-                /* 480px屏幕下，1rem约为16.3px; 375px屏幕下，1rem约为12.75px */
+                /* 动态调整rem基准，实现内部元素缩放 */
                 font-size: 3.4vw; 
+            }
+            body {
+                padding: 0.5rem; /* 减小页面边距 */
+            }
+            .container {
+                padding: 1rem; /* 减小容器内边距 */
             }
             .controls {
                 flex-direction: column;
