@@ -192,57 +192,84 @@
        
         /* 响应式样式 (手机端) */
         @media (max-width: 768px) {
-            body {
-                padding: 0;
-                background: var(--card-bg); /* 背景直接设为白色 */
-            }
-            .container {
-                width: 100%;
-                max-width: 100%;
-                min-height: 100vh;
-                padding: 20px;
-                border-radius: 0;
-                box-shadow: none;
-            }
-            h1 {
-                font-size: 2.2em;
-                margin-bottom: 40px;
-            }
-            .total-section input {
-                max-width: 100%;
-                font-size: 1.5em;
-                padding: 15px;
-            }
-            .members-grid {
-                gap: 20px;
-            }
-            .member-card {
-                flex-direction: column;
-                align-items: stretch; /* 让内部元素撑满宽度 */
-                width: 100%;
-                gap: 10px;
-                padding: 15px;
-            }
-            /* 强制所有输入框和结果显示都撑满宽度 */
-            .member-card input[type="text"],
-            .member-card input[type="number"],
-            .member-card .member-result {
-                width: 100% !important;
-                font-size: 1.2em;
-                text-align: center;
-            }
-            .controls {
-                flex-direction: column;
-                gap: 15px;
-                margin-top: 40px;
-            }
-            .nice-button {
-                width: 100%;
-                padding: 15px;
-                font-size: 1.2em;
-                border-radius: 15px;
-            }
-        }
+  body {
+    padding: 0;
+    background: var(--card-bg);
+  }
+  .container {
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 0 0 32px 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 32px;
+  }
+  .total-section {
+    margin-bottom: 24px;
+  }
+  .total-section input {
+    max-width: 100%;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 16px 12px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .members-grid {
+    gap: 16px;
+    width: 100%;
+  }
+  .member-card {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+    padding: 12px 0;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .member-card input[type="text"],
+  .member-card input[type="number"],
+  .member-card .member-result {
+    width: 90vw !important;
+    max-width: 95vw;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .member-card .member-result {
+    font-size: 1.2em;
+    padding: 12px 0;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    width: 100%;
+    align-items: center;
+  }
+  .nice-button {
+    width: 90vw;
+    max-width: 95vw;
+    padding: 16px 0;
+    font-size: 1.2em;
+    border-radius: 14px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+}
     </style>
 </head>
 <body>
