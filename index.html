@@ -194,6 +194,19 @@
         .add-btn { background-color: var(--primary-color); }
         .reset-btn { background-color: var(--secondary-color); }
 
+        .total-section label,
+        .member-card input,
+        .member-card .member-result,
+        .nice-button,
+        .reset-btn,
+        .add-btn {
+            text-align: center;
+        }
+        /* placeholder 居中 */
+        input::placeholder {
+            text-align: center;
+        }
+
        
         @media (max-width: 768px) {
             body {
@@ -216,7 +229,7 @@
                 display: block;
             }
             .members-grid {
-                gap: 15px;
+                gap: 10px;
             }
             .member-card {
                 width: 90%;
@@ -248,16 +261,6 @@
                 margin-right: auto;
                 box-sizing: border-box;
                 font-size: 1em;
-            }
-            body, .container, .total-section, .member-card, .member-card > *, .member-result, .controls, .nice-button {
-                text-align: center !important;
-            }
-            /* 保持 h1 原有居中方式，不强制覆盖 */
-            input, .member-card input, .total-section input {
-                text-align: center !important;
-            }
-            ::placeholder {
-                text-align: center !important;
             }
         }
         @media (max-width: 480px) {
