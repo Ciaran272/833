@@ -243,11 +243,20 @@
                 gap: 10px;
             }
             .nice-button {
-                width: 60%;
+                width: 35%;
                 margin-left: auto;
                 margin-right: auto;
                 box-sizing: border-box;
                 font-size: 1em;
+            }
+            body, .container, h1, .total-section, .member-card, .member-card > *, .member-result, .controls, .nice-button {
+                text-align: center !important;
+            }
+            input, .member-card input, .total-section input {
+                text-align: center !important;
+            }
+            ::placeholder {
+                text-align: center !important;
             }
         }
         @media (max-width: 480px) {
